@@ -16,7 +16,8 @@
 
 # Imports
 from threading import Thread, Event
-from time import clock, sleep
+from time import sleep
+from timeit import default_timer as time
 from sequence.common.constant import XBM, LOGGER, BES
 from sequence.action.abstract import create_action
 
@@ -29,18 +30,18 @@ class RunableSequence():
 
         def __init__(self):
             """ Initializer the time reference """
-            self.ref = clock()
+            self.ref = time()
 
         def reset(self):
             """ Reset the time reference """
-            self.ref = clock()
+            self.ref = time()
 
         def wait(self, time):
             """ Wait until the time reference equals the time parameter """
-            delta = time + self.ref -  clock()
+            delta = time + self.ref -  time()
             while delta > 0:
                 sleep(delta)
-                delta = time + self.ref -  clock()
+                delta = time + self.ref -  time()
 
     def __init__(self, xml_sequence, stop_thread, root=False):
         """ Initialize a runable sequence
