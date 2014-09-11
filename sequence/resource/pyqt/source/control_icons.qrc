@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="control_icons">
+    <file>icons/go-bottom.png</file>
+    <file>icons/go-next.png</file>
+    <file>icons/process-stop.png</file>
+  </qresource>
+</RCC>

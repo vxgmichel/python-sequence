@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/root-sequence.png</file>
+    <file>icons/backup-sequence.png</file>
+    <file>icons/sequence.png</file>
+    <file>icons/go-jump.png</file>
+    <file>icons/go-next.png</file>
+    <file>icons/media-playback-stop.png</file>
+    <file>icons/go-bottom.png</file>
+    <file>icons/system-search.png</file>
+    <file>icons/document-new.png</file>
+    <file>icons/python.png</file>
+    <file>icons/document-open.png</file>
+    <file>icons/document-save.png</file>
+    <file>icons/document-save-as.png</file>
+    <file>icons/edit-redo.png</file>
+    <file>icons/edit-undo.png</file>
+    <file>icons/info.png</file>
+    <file>icons/media-playback-start.png</file>
+    <file>icons/process-stop.png</file>
+  </qresource>
+  <qresource prefix="logos">
+    <file>logos/nexeya_logo.png</file>
+  </qresource>
+</RCC>
