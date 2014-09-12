@@ -36,12 +36,12 @@ class RunableSequence():
             """ Reset the time reference """
             self.ref = time()
 
-        def wait(self, time):
+        def wait(self, arg):
             """ Wait until the time reference equals the time parameter """
-            delta = time + self.ref -  time()
+            delta = arg + self.ref -  time()
             while delta > 0:
                 sleep(delta)
-                delta = time + self.ref -  time()
+                delta = arg + self.ref -  time()
 
     def __init__(self, xml_sequence, stop_thread, root=False):
         """ Initialize a runable sequence
@@ -257,7 +257,7 @@ class SubsequenceExecution(AbstractExecution):
         self.sequences = []
         self.tick = self.block.properties.tick
         self.iteration = self.block.properties.iteration
-        self.sequence_id = self.block.subsequence.sequence_id
+        self.sequence_id = self.block.properties.sequence_id
         if self.block.subsequence:
             self.sequences = [RunableSequence(self.block.subsequence,
                                               self.thread.stop_thread)

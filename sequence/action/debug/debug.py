@@ -6,7 +6,7 @@ return_false : False : bool
 """
 
 
-class DebugAction(AbstractAction):
+class Debug(AbstractAction):
 
     def run(self):
         self.info(self.log_value)
