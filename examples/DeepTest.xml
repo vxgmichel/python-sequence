@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<Sequence SequenceID="A">
+
+    <Blocks>
+
+        <Begin ID="Begin">
+            <InputOutput
+                Output="PreMacro"/>
+            <Extra
+                X="78"
+                Y="97"/>
+        </Begin>
+
+        <Macro ID="Macro">
+            <InputOutput
+                Input="PreMacro"
+                Output="PostMacro"/>
+            <Properties
+                Iteration="1"
+                SequenceID="B"
+                Tick="0.0"/>
+            <Extra
+                X="339"
+                Y="97"/>
+        </Macro>
+
+        <End ID="End">
+            <InputOutput
+                Input="PostMacro"/>
+            <Extra
+                X="601"
+                Y="97"/>
+        </End>
+
+        <Action ID="PostMacro">
+            <InputOutput
+                Input="Macro"
+                Output="End"/>
+            <Properties
+                Iteration="1"
+                Module="sequence.action.debug.debug"
+                Tick="0.0"/>
+            <Parameters
+                log_value="debug_string"
+                return_false="False"/>
+            <Extra
+                X="467"
+                Y="97"/>
+        </Action>
+
+        <Action ID="PreMacro">
+            <InputOutput
+                Input="Begin"
+                Output="Macro"/>
+            <Properties
+                Iteration="1"
+                Module="sequence.action.debug.debug"
+                Tick="0.0"/>
+            <Parameters
+                log_value="debug_string"
+                return_false="False"/>
+            <Extra
+                X="213"
+                Y="97"/>
+        </Action>
+
+    </Blocks>
+
+    <Subsequences>
+
+        <Sequence SequenceID="B">
+
+            <Blocks>
+
+                <Begin ID="Begin">
+                    <InputOutput
+                        Output="PreMacro"/>
+                    <Extra
+                        X="78"
+                        Y="97"/>
+                </Begin>
+
+                <Macro ID="Macro">
+                    <InputOutput
+                        Input="PreMacro"
+                        Output="PostMacro"/>
+                    <Properties
+                        Iteration="1"
+                        SequenceID="C"
+                        Tick="0.0"/>
+                    <Extra
+                        X="344"
+                        Y="97"/>
+                </Macro>
+
+                <End ID="End">
+                    <InputOutput
+                        Input="PostMacro"/>
+                    <Extra
+                        X="601"
+                        Y="97"/>
+                </End>
+
+                <Action ID="PostMacro">
+                    <InputOutput
+                        Input="Macro"
+                        Output="End"/>
+                    <Properties
+                        Iteration="1"
+                        Module="sequence.action.debug.debug"
+                        Tick="0.0"/>
+                    <Parameters
+                        log_value="debug_string"
+                        return_false="False"/>
+                    <Extra
+                        X="472"
+                        Y="97"/>
+                </Action>
+
+                <Action ID="PreMacro">
+                    <InputOutput
+                        Input="Begin"
+                        Output="Macro"/>
+                    <Properties
+                        Iteration="1"
+                        Module="sequence.action.debug.debug"
+                        Tick="0.0"/>
+                    <Parameters
+                        log_value="debug_string"
+                        return_false="False"/>
+                    <Extra
+                        X="207"
+                        Y="97"/>
+                </Action>
+
+            </Blocks>
+
+            <Subsequences>
+
+                <Sequence SequenceID="C">
+
+                    <Blocks>
+
+                        <Begin ID="Begin">
+                            <InputOutput
+                                Output="PreMacro"/>
+                            <Extra
+                                X="78"
+                                Y="97"/>
+                        </Begin>
+
+                        <Macro ID="Macro">
+                            <InputOutput
+                                Input="PreMacro"
+                                Output="PostMacro"/>
+                            <Properties
+                                Iteration="1"
+                                SequenceID="D"
+                                Tick="0.0"/>
+                            <Extra
+                                X="334"
+                                Y="97"/>
+                        </Macro>
+
+                        <End ID="End">
+                            <InputOutput
+                                Input="PostMacro"/>
+                            <Extra
+                                X="601"
+                                Y="97"/>
+                        </End>
+
+                        <Action ID="PostMacro">
+                            <InputOutput
+                                Input="Macro"
+                                Output="End"/>
+                            <Properties
+                                Iteration="1"
+                                Module="sequence.action.debug.debug"
+                                Tick="0.0"/>
+                            <Parameters
+                                log_value="debug_string"
+                                return_false="False"/>
+                            <Extra
+                                X="461"
+                                Y="97"/>
+                        </Action>
+
+                        <Action ID="PreMacro">
+                            <InputOutput
+                                Input="Begin"
+                                Output="Macro"/>
+                            <Properties
+                                Iteration="1"
+                                Module="sequence.action.debug.debug"
+                                Tick="0.0"/>
+                            <Parameters
+                                log_value="debug_string"
+                                return_false="False"/>
+                            <Extra
+                                X="207"
+                                Y="97"/>
+                        </Action>
+
+                    </Blocks>
+
+                    <Subsequences>
+
+                        <Sequence SequenceID="D">
+
+                            <Blocks>
+
+                                <Begin ID="Begin">
+                                    <InputOutput
+                                        Output="PreMacro"/>
+                                    <Extra
+                                        X="78"
+                                        Y="97"/>
+                                </Begin>
+
+                                <Macro ID="Macro">
+                                    <InputOutput
+                                        Input="PreMacro"
+                                        Output="PostMacro"/>
+                                    <Properties
+                                        Iteration="1"
+                                        SequenceID="NoSubsequence"
+                                        Tick="0.0"/>
+                                    <Extra
+                                        X="334"
+                                        Y="97"/>
+                                </Macro>
+
+                                <End ID="End">
+                                    <InputOutput
+                                        Input="PostMacro"/>
+                                    <Extra
+                                        X="608"
+                                        Y="97"/>
+                                </End>
+
+                                <Action ID="PostMacro">
+                                    <InputOutput
+                                        Input="Macro"
+                                        Output="End"/>
+                                    <Properties
+                                        Iteration="1"
+                                        Module="sequence.action.debug.debug"
+                                        Tick="0.0"/>
+                                    <Parameters
+                                        log_value="debug_string"
+                                        return_false="True"/>
+                                    <Extra
+                                        X="472"
+                                        Y="97"/>
+                                </Action>
+
+                                <Action ID="PreMacro">
+                                    <InputOutput
+                                        Input="Begin"
+                                        Output="Macro"/>
+                                    <Properties
+                                        Iteration="1"
+                                        Module="sequence.action.debug.debug"
+                                        Tick="0.0"/>
+                                    <Parameters
+                                        log_value="debug_string"
+                                        return_false="False"/>
+                                    <Extra
+                                        X="207"
+                                        Y="97"/>
+                                </Action>
+
+                            </Blocks>
+
+                            <Subsequences>
+
+                                <Sequence SequenceID="BackD">
+
+                                    <Blocks>
+
+                                        <Begin ID="Begin">
+                                            <InputOutput
+                                                Output="DebugModule"/>
+                                            <Extra
+                                                X="94"
+                                                Y="130"/>
+                                        </Begin>
+
+                                        <Action ID="DebugModule">
+                                            <InputOutput
+                                                Input="Begin"
+                                                Output="End"/>
+                                            <Properties
+                                                Iteration="1"
+                                                Module="sequence.action.debug.debug"
+                                                Tick="0.0"/>
+                                            <Parameters
+                                                log_value="Backup D"
+                                                return_false="False"/>
+                                            <Extra
+                                                X="216"
+                                                Y="130"/>
+                                        </Action>
+
+                                        <End ID="End">
+                                            <InputOutput
+                                                Input="DebugModule"/>
+                                            <Extra
+                                                X="342"
+                                                Y="130"/>
+                                        </End>
+
+                                    </Blocks>
+
+                                </Sequence>
+
+                            </Subsequences>
+
+                            <Backup SequenceID="BackD"/>
+
+                        </Sequence>
+
+                        <Sequence SequenceID="BackC">
+
+                            <Blocks>
+
+                                <Begin ID="Begin">
+                                    <InputOutput
+                                        Output="DebugModule"/>
+                                    <Extra
+                                        X="67"
+                                        Y="60"/>
+                                </Begin>
+
+                                <Action ID="DebugModule">
+                                    <InputOutput
+                                        Input="Begin"
+                                        Output="Macro"/>
+                                    <Properties
+                                        Iteration="1"
+                                        Module="sequence.action.debug.debug"
+                                        Tick="0.0"/>
+                                    <Parameters
+                                        log_value="BackC"
+                                        return_false="False"/>
+                                    <Extra
+                                        X="198"
+                                        Y="60"/>
+                                </Action>
+
+                                <End ID="End">
+                                    <InputOutput
+                                        Input="DebugModule 2"/>
+                                    <Extra
+                                        X="555"
+                                        Y="60"/>
+                                </End>
+
+                                <Macro ID="Macro">
+                                    <InputOutput
+                                        Input="DebugModule"
+                                        Output="DebugModule 2"/>
+                                    <Properties
+                                        Iteration="1"
+                                        SequenceID="BackC1"
+                                        Tick="0.0"/>
+                                    <Extra
+                                        X="323"
+                                        Y="60"/>
+                                </Macro>
+
+                                <Action ID="DebugModule 2">
+                                    <InputOutput
+                                        Input="Macro"
+                                        Output="End"/>
+                                    <Properties
+                                        Iteration="1"
+                                        Module="sequence.action.debug.debug"
+                                        Tick="0.0"/>
+                                    <Parameters
+                                        log_value="debug_string"
+                                        return_false="False"/>
+                                    <Extra
+                                        X="436"
+                                        Y="60"/>
+                                </Action>
+
+                            </Blocks>
+
+                            <Subsequences>
+
+                                <Sequence SequenceID="BackC1">
+
+                                    <Blocks>
+
+                                        <Begin ID="Begin">
+                                            <InputOutput
+                                                Output="DebugModule"/>
+                                            <Extra
+                                                X="65"
+                                                Y="50"/>
+                                        </Begin>
+
+                                        <End ID="End">
+                                            <InputOutput
+                                                Input="DebugModule"/>
+                                            <Extra
+                                                X="378"
+                                                Y="50"/>
+                                        </End>
+
+                                        <Action ID="DebugModule">
+                                            <InputOutput
+                                                Input="Begin"
+                                                Output="End"/>
+                                            <Properties
+                                                Iteration="1"
+                                                Module="sequence.action.debug.debug"
+                                                Tick="0.0"/>
+                                            <Parameters
+                                                log_value="BackC1"
+                                                return_false="True"/>
+                                            <Extra
+                                                X="222"
+                                                Y="50"/>
+                                        </Action>
+
+                                    </Blocks>
+
+                                </Sequence>
+
+                                <Sequence SequenceID="BackBackC">
+
+                                    <Blocks>
+
+                                        <Begin ID="Begin">
+                                            <InputOutput
+                                                Output="DebugModule"/>
+                                            <Extra
+                                                X="127"
+                                                Y="75"/>
+                                        </Begin>
+
+                                        <End ID="End">
+                                            <InputOutput
+                                                Input="DebugModule"/>
+                                            <Extra
+                                                X="390"
+                                                Y="75"/>
+                                        </End>
+
+                                        <Action ID="DebugModule">
+                                            <InputOutput
+                                                Input="Begin"
+                                                Output="End"/>
+                                            <Properties
+                                                Iteration="1"
+                                                Module="sequence.action.debug.debug"
+                                                Tick="0.0"/>
+                                            <Parameters
+                                                log_value="BackBackC1"
+                                                return_false="True"/>
+                                            <Extra
+                                                X="251"
+                                                Y="75"/>
+                                        </Action>
+
+                                    </Blocks>
+
+                                </Sequence>
+
+                            </Subsequences>
+
+                            <Backup SequenceID="BackBackC"/>
+
+                        </Sequence>
+
+                    </Subsequences>
+
+                    <Backup SequenceID="BackC"/>
+
+                </Sequence>
+
+                <Sequence SequenceID="BackB">
+
+                    <Blocks>
+
+                        <Begin ID="Begin">
+                            <InputOutput
+                                Output="DebugModule"/>
+                            <Extra
+                                X="68"
+                                Y="141"/>
+                        </Begin>
+
+                        <End ID="End">
+                            <InputOutput
+                                Input="DebugModule"/>
+                            <Extra
+                                X="354"
+                                Y="141"/>
+                        </End>
+
+                        <Action ID="DebugModule">
+                            <InputOutput
+                                Input="Begin"
+                                Output="End"/>
+                            <Properties
+                                Iteration="1"
+                                Module="sequence.action.debug.debug"
+                                Tick="0.0"/>
+                            <Parameters
+                                log_value="Backup B"
+                                return_false="False"/>
+                            <Extra
+                                X="205"
+                                Y="141"/>
+                        </Action>
+
+                    </Blocks>
+
+                </Sequence>
+
+            </Subsequences>
+
+            <Backup SequenceID="BackB"/>
+
+        </Sequence>
+
+    </Subsequences>
+
+</Sequence>
+

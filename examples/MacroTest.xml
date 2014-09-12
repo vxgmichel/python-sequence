@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<Sequence SequenceID="A">
+
+    <Blocks>
+
+        <Macro ID="B22">
+            <InputOutput
+                Input="B1"
+                Output="End"/>
+            <Properties
+                Iteration="3"
+                SequenceID="B2"
+                Tick="1.0"/>
+            <Extra
+                X="467"
+                Y="69"/>
+        </Macro>
+
+        <Macro ID="B21">
+            <InputOutput
+                Input="Begin"
+                Output="B1"/>
+            <Properties
+                Iteration="1"
+                SequenceID="B2"
+                Tick="0.0"/>
+            <Extra
+                X="195"
+                Y="69"/>
+        </Macro>
+
+        <Begin ID="Begin">
+            <InputOutput
+                Output="B21"/>
+            <Extra
+                X="66"
+                Y="69"/>
+        </Begin>
+
+        <End ID="End">
+            <InputOutput
+                Input="B22"/>
+            <Extra
+                X="609"
+                Y="69"/>
+        </End>
+
+        <Macro ID="B1">
+            <InputOutput
+                Input="B21"
+                Output="B22"/>
+            <Properties
+                Iteration="2"
+                SequenceID="B1"
+                Tick="0.0"/>
+            <Extra
+                X="327"
+                Y="69"/>
+        </Macro>
+
+    </Blocks>
+
+    <Subsequences>
+
+        <Sequence SequenceID="B2">
+
+            <Blocks>
+
+                <Begin ID="Begin">
+                    <InputOutput
+                        Output="Debug"/>
+                    <Extra
+                        X="50"
+                        Y="50"/>
+                </Begin>
+
+                <End ID="End">
+                    <InputOutput
+                        Input="Debug"/>
+                    <Extra
+                        X="309"
+                        Y="50"/>
+                </End>
+
+                <Action ID="Debug">
+                    <InputOutput
+                        Input="Begin"
+                        Output="End"/>
+                    <Properties
+                        Iteration="1"
+                        Module="sequence.action.debug.debug"
+                        Tick="0.0"/>
+                    <Parameters
+                        log_value="B2 Execution"
+                        return_false="False"/>
+                    <Extra
+                        X="181"
+                        Y="50"/>
+                </Action>
+
+            </Blocks>
+
+        </Sequence>
+
+        <Sequence SequenceID="B1">
+
+            <Blocks>
+
+                <Begin ID="Begin">
+                    <InputOutput
+                        Output="Debug"/>
+                    <Extra
+                        X="50"
+                        Y="50"/>
+                </Begin>
+
+                <End ID="End">
+                    <InputOutput
+                        Input="Debug"/>
+                    <Extra
+                        X="302"
+                        Y="50"/>
+                </End>
+
+                <Action ID="Debug">
+                    <InputOutput
+                        Input="Begin"
+                        Output="End"/>
+                    <Properties
+                        Iteration="1"
+                        Module="sequence.action.debug.debug"
+                        Tick="0.0"/>
+                    <Parameters
+                        log_value="B1 Execution"
+                        return_false="False"/>
+                    <Extra
+                        X="177"
+                        Y="50"/>
+                </Action>
+
+            </Blocks>
+
+        </Sequence>
+
+    </Subsequences>
+
+</Sequence>
+

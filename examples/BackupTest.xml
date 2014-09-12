@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<Sequence SequenceID="Main">
+
+    <Blocks>
+
+        <Begin ID="Begin">
+            <InputOutput
+                Output="DebugModule"/>
+            <Extra
+                X="64"
+                Y="69"/>
+        </Begin>
+
+        <Action ID="DebugModule">
+            <InputOutput
+                Input="Begin"
+                Output="End 2"/>
+            <Properties
+                Iteration="1"
+                Module="sequence.action.debug.debug"
+                Tick="0.0"/>
+            <Parameters
+                log_value="debug_string"
+                return_false="True"/>
+            <Extra
+                X="204"
+                Y="69"/>
+        </Action>
+
+        <End ID="End 2">
+            <InputOutput
+                Input="DebugModule"/>
+            <Extra
+                X="350"
+                Y="69"/>
+        </End>
+
+    </Blocks>
+
+    <Subsequences>
+
+        <Sequence SequenceID="Backup">
+
+            <Blocks>
+
+                <Begin ID="Begin">
+                    <InputOutput
+                        Output="DebugModule"/>
+                    <Extra
+                        X="50"
+                        Y="50"/>
+                </Begin>
+
+                <End ID="End">
+                    <InputOutput
+                        Input="DebugModule"/>
+                    <Extra
+                        X="294"
+                        Y="50"/>
+                </End>
+
+                <Action ID="DebugModule">
+                    <InputOutput
+                        Input="Begin"
+                        Output="End"/>
+                    <Properties
+                        Iteration="1"
+                        Module="sequence.action.debug.debug"
+                        Tick="0.0"/>
+                    <Parameters
+                        log_value="Backup in progress"
+                        return_false="False"/>
+                    <Extra
+                        X="171"
+                        Y="50"/>
+                </Action>
+
+            </Blocks>
+
+        </Sequence>
+
+    </Subsequences>
+
+    <Backup SequenceID="Backup"/>
+
+</Sequence>
+

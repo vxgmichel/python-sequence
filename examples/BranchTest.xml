@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<Sequence SequenceID="BranchFest">
+
+    <Blocks>
+
+        <Begin ID="Begin">
+            <InputOutput
+                Output="Branch"/>
+            <Extra
+                X="69"
+                Y="50"/>
+        </Begin>
+
+        <End ID="End">
+            <InputOutput
+                Input="Wait 6"/>
+            <Extra
+                X="1326"
+                Y="50"/>
+        </End>
+
+        <Branch ID="Branch">
+            <InputOutput
+                Input="Begin"
+                Output="Wait 1;Wait 2;EmptyModule"/>
+            <Extra
+                X="232"
+                Y="50"/>
+        </Branch>
+
+        <Branch ID="Branch 2">
+            <InputOutput
+                Input="Wait 1"
+                Output="Wait 3;Wait 4"/>
+            <Extra
+                X="498"
+                Y="50"/>
+        </Branch>
+
+        <Branch ID="Branch 3">
+            <InputOutput
+                Input="Wait 4;Init"
+                Output="Wait 5"/>
+            <Extra
+                X="792"
+                Y="345"/>
+        </Branch>
+
+        <Branch ID="Branch 4">
+            <InputOutput
+                Input="Wait 3;EmptyModule;DebugModule"
+                Output="Wait 6"/>
+            <Extra
+                X="1082"
+                Y="50"/>
+        </Branch>
+
+        <Wait ID="Wait 2">
+            <InputOutput
+                Input="Branch"
+                Output="Init"/>
+            <Properties
+                Absolute="False"
+                Time="3.0"/>
+            <Extra
+                X="385"
+                Y="345"/>
+        </Wait>
+
+        <Wait ID="Wait 1">
+            <InputOutput
+                Input="Branch"
+                Output="Branch 2"/>
+            <Properties
+                Absolute="False"
+                Time="1.0"/>
+            <Extra
+                X="385"
+                Y="50"/>
+        </Wait>
+
+        <Wait ID="Wait 3">
+            <InputOutput
+                Input="Branch 2"
+                Output="Branch 4"/>
+            <Properties
+                Absolute="False"
+                Time="1.0"/>
+            <Extra
+                X="640"
+                Y="50"/>
+        </Wait>
+
+        <Wait ID="Wait 4">
+            <InputOutput
+                Input="Branch 2"
+                Output="Branch 3"/>
+            <Properties
+                Absolute="True"
+                Time="1.0"/>
+            <Extra
+                X="640"
+                Y="237"/>
+        </Wait>
+
+        <Wait ID="Wait 5">
+            <InputOutput
+                Input="Branch 3"
+                Output="DebugModule"/>
+            <Properties
+                Absolute="True"
+                Time="3.0"/>
+            <Extra
+                X="926"
+                Y="345"/>
+        </Wait>
+
+        <Wait ID="Wait 6">
+            <InputOutput
+                Input="Branch 4"
+                Output="End"/>
+            <Properties
+                Absolute="False"
+                Time="1.0"/>
+            <Extra
+                X="1203"
+                Y="50"/>
+        </Wait>
+
+        <TimeInit ID="Init">
+            <InputOutput
+                Input="Wait 2"
+                Output="Branch 3"/>
+            <Extra
+                X="498"
+                Y="345"/>
+        </TimeInit>
+
+        <Action ID="EmptyModule">
+            <InputOutput
+                Input="Branch"
+                Output="Branch 4"/>
+            <Properties
+                Iteration="1"
+                Module="sequence.action.debug.debug"
+                Tick="0.0"/>
+            <Parameters
+                log_value="debug_string"
+                return_false="False"/>
+            <Extra
+                X="385"
+                Y="176"/>
+        </Action>
+
+        <Action ID="DebugModule">
+            <InputOutput
+                Input="Wait 5"
+                Output="Branch 4"/>
+            <Properties
+                Iteration="1"
+                Module="sequence.action.debug.debug"
+                Tick="0.0"/>
+            <Parameters
+                log_value="debug_string"
+                return_false="True"/>
+            <Extra
+                X="1082"
+                Y="345"/>
+        </Action>
+
+    </Blocks>
+
+</Sequence>
+
