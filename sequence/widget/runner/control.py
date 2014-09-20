@@ -19,7 +19,7 @@ import os, sys, logging
 from PyQt4 import QtGui, QtCore
 
 # Imports from Packages
-from sequence.resource.pyqt.build import control_icons_rc
+from sequence.resource.pyqt import control_icons_rc
 from sequence.core.engine import SequenceEngine
 
 

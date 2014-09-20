@@ -24,7 +24,7 @@ import logging
 # Imports from SequenceEditor package
 from sequence.widget.editor.item import SequenceItem
 from sequence.widget.editor.blockmodel import BlockModel
-from sequence.resource.pyqt.build.editor_ui import Ui_PySequenceEditor
+from sequence.resource.pyqt.editor_ui import Ui_PySequenceEditor
 
 
 # Import from other packages
