@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Common documentation &mdash; python-sequence 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="python-sequence 1.0 documentation" href="index.html" />
+    <link rel="next" title="Script documentation" href="script.html" />
+    <link rel="prev" title="Core documentation" href="core.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="script.html" title="Script documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Core documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">python-sequence 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-sequence.common">
+<span id="common-documentation"></span><h1>Common documentation<a class="headerlink" href="#module-sequence.common" title="Permalink to this headline">¶</a></h1>
+<p>Package containing useful resources shared between the other packages.</p>
+<div class="section" id="xml-parser">
+<h2>XML Parser<a class="headerlink" href="#xml-parser" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><span class="target" id="module-sequence.common.parser"></span><p>Module for sequence parsing</p>
+<dl class="class">
+<dt id="sequence.common.parser.BlockProperties">
+<em class="property">class </em><tt class="descclassname">sequence.common.parser.</tt><tt class="descname">BlockProperties</tt><big>(</big><em>block_type</em><big>)</big><a class="headerlink" href="#sequence.common.parser.BlockProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to manipulate block properties</p>
+<dl class="method">
+<dt id="sequence.common.parser.BlockProperties.check_type">
+<tt class="descname">check_type</tt><big>(</big><em>block_type</em>, <em>block_id</em><big>)</big><a class="headerlink" href="#sequence.common.parser.BlockProperties.check_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check properties validity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>block_type</strong> &#8211; type of the block to use for checking</li>
+<li><strong>block_id</strong> &#8211; ID of the block (for error message)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.BlockProperties.get_dictionnary">
+<tt class="descname">get_dictionnary</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.BlockProperties.get_dictionnary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionnary of the block properties</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.BlockProperties.get_element">
+<tt class="descname">get_element</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.BlockProperties.get_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return XML element of the block properties</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.BlockProperties.parse_properties">
+<tt class="descname">parse_properties</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.BlockProperties.parse_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an xml node as block properties</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.BlockProperties.set_dictionary">
+<tt class="descname">set_dictionary</tt><big>(</big><em>dictionary</em><big>)</big><a class="headerlink" href="#sequence.common.parser.BlockProperties.set_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the dictionnary as the block properties
+Return True if the dictionary has been modified</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="sequence.common.parser.InvalidSequenceError">
+<em class="property">exception </em><tt class="descclassname">sequence.common.parser.</tt><tt class="descname">InvalidSequenceError</tt><big>(</big><em>strerror</em><big>)</big><a class="headerlink" href="#sequence.common.parser.InvalidSequenceError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom error raised when the sequence is invalid</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="sequence.common.parser.SequenceSynthaxError">
+<em class="property">exception </em><tt class="descclassname">sequence.common.parser.</tt><tt class="descname">SequenceSynthaxError</tt><big>(</big><em>strerror</em><big>)</big><a class="headerlink" href="#sequence.common.parser.SequenceSynthaxError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom error raised when a synthax error is detected</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.common.parser.XMLBlock">
+<em class="property">class </em><tt class="descclassname">sequence.common.parser.</tt><tt class="descname">XMLBlock</tt><big>(</big><em>block_id</em>, <em>block_type</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to manipulate an XML block</p>
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.check_type">
+<tt class="descname">check_type</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.check_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check block validity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.create_action">
+<tt class="descname">create_action</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.create_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create action from Actions module</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.get_element">
+<tt class="descname">get_element</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.get_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build and return the XML node corresponding to the block</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.handle_multiple_inputs">
+<tt class="descname">handle_multiple_inputs</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.handle_multiple_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the block handles multiple inputs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.handle_multiple_outputs">
+<tt class="descname">handle_multiple_outputs</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.handle_multiple_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the block handles multiple outputs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.parse_block">
+<tt class="descname">parse_block</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.parse_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an XML node as a block</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLBlock.parse_io">
+<tt class="descname">parse_io</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLBlock.parse_io" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an XML node as input/output data</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.common.parser.XMLSequence">
+<em class="property">class </em><tt class="descclassname">sequence.common.parser.</tt><tt class="descname">XMLSequence</tt><big>(</big><em>sequence_id</em>, <em>depth=0</em>, <em>level=0</em>, <em>execution=False</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to manipulate an XML sequence</p>
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.check_sequence">
+<tt class="descname">check_sequence</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.check_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check sequence validity (only for execution)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.create_actions">
+<tt class="descname">create_actions</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.create_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create actions (only for execution)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.create_links">
+<tt class="descname">create_links</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.create_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create links between blocks</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.get_element">
+<tt class="descname">get_element</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.get_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build and return the XML node corresponding to the sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.parse_backup">
+<tt class="descname">parse_backup</tt><big>(</big><em>backup_node</em>, <em>subsequence_node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.parse_backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an xml node as a backup sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>backup_node</strong> &#8211; xml node of the backup sequence reference</li>
+<li><strong>subsequence_node</strong> &#8211; xml node of the subsequences list</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.parse_blocks">
+<tt class="descname">parse_blocks</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.parse_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an xml node as list of blocks</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.parse_sequence">
+<tt class="descname">parse_sequence</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.parse_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an xml node as a sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.parse_subsequences">
+<tt class="descname">parse_subsequences</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.parse_subsequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an xml node as list of subsequences</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.remove_block">
+<tt class="descname">remove_block</tt><big>(</big><em>block</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.remove_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a block from the block list and break the links</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.set_backup">
+<tt class="descname">set_backup</tt><big>(</big><em>backup</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.set_backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a custom backup to the sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.common.parser.XMLSequence.xml_export">
+<tt class="descname">xml_export</tt><big>(</big><em>filename</em>, <em>pretty=True</em><big>)</big><a class="headerlink" href="#sequence.common.parser.XMLSequence.xml_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export XML Sequence to an XML file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="sequence.common.parser.assert_valid_id">
+<tt class="descclassname">sequence.common.parser.</tt><tt class="descname">assert_valid_id</tt><big>(</big><em>string</em>, <em>display_name</em><big>)</big><a class="headerlink" href="#sequence.common.parser.assert_valid_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert valid IDs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>string</strong> &#8211; str &#8211; string to assert</li>
+<li><strong>display_name</strong> &#8211; str &#8211; string to display with error message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sequence.common.parser.custom_format_sequence">
+<tt class="descclassname">sequence.common.parser.</tt><tt class="descname">custom_format_sequence</tt><big>(</big><em>in_file</em>, <em>out_file</em><big>)</big><a class="headerlink" href="#sequence.common.parser.custom_format_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format a sequence xml file with a custom format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>in_file</strong> &#8211; sequence file written with the pretty print option of lxml</li>
+<li><strong>out_file</strong> &#8211; file object to write the formatted sequence</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sequence.common.parser.is_sequence">
+<tt class="descclassname">sequence.common.parser.</tt><tt class="descname">is_sequence</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#sequence.common.parser.is_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if a node is a sequence, and return its ID</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sequence.common.parser.parse_sequence_file">
+<tt class="descclassname">sequence.common.parser.</tt><tt class="descname">parse_sequence_file</tt><big>(</big><em>file_name</em>, <em>max_depth=None</em>, <em>backup_file=None</em>, <em>execution=True</em><big>)</big><a class="headerlink" href="#sequence.common.parser.parse_sequence_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an XML sequence file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>file_name</strong> &#8211; str &#8211; name of the file to parse as a sequence</li>
+<li><strong>max_depth</strong> &#8211; int &#8211; maximum depth for sequence creation</li>
+<li><strong>backup_file</strong> &#8211; str &#8211; name of the file to parse as a backup sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the XMLSequence corresponding</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><span class="target" id="module-sequence.common.constant"></span><p>Module containing constants</p>
+<dl class="function">
+<dt id="sequence.common.constant.enum">
+<tt class="descclassname">sequence.common.constant.</tt><tt class="descname">enum</tt><big>(</big><em>**enums</em><big>)</big><a class="headerlink" href="#sequence.common.constant.enum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function allowing the definition of enumerations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enums</strong> &#8211; set of elements to enumerate</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an enumeration</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Common documentation</a><ul>
+<li><a class="reference internal" href="#xml-parser">XML Parser</a></li>
+<li><a class="reference internal" href="#constants">Constants</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="core.html"
+                        title="previous chapter">Core documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="script.html"
+                        title="next chapter">Script documentation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/common.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="script.html" title="Script documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Core documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">python-sequence 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Vincent MICHEL.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

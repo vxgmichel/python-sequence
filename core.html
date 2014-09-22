@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Core documentation &mdash; python-sequence 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="python-sequence 1.0 documentation" href="index.html" />
+    <link rel="next" title="Common documentation" href="common.html" />
+    <link rel="prev" title="Action documentation" href="action.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="common.html" title="Common documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="action.html" title="Action documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">python-sequence 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-sequence.core">
+<span id="core-documentation"></span><h1>Core documentation<a class="headerlink" href="#module-sequence.core" title="Permalink to this headline">¶</a></h1>
+<p>Package for sequence execution.</p>
+<div class="section" id="engine-module">
+<h2>Engine module<a class="headerlink" href="#engine-module" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><span class="target" id="module-sequence.core.engine"></span><p>Main module for sequence execution</p>
+<dl class="class">
+<dt id="sequence.core.engine.SequenceEngine">
+<em class="property">class </em><tt class="descclassname">sequence.core.engine.</tt><tt class="descname">SequenceEngine</tt><a class="headerlink" href="#sequence.core.engine.SequenceEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class of the sequence engine</p>
+<dl class="method">
+<dt id="sequence.core.engine.SequenceEngine.interrupt">
+<tt class="descname">interrupt</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.engine.SequenceEngine.interrupt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interrupt the sequence execution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.engine.SequenceEngine.load">
+<tt class="descname">load</tt><big>(</big><em>xml_file</em>, <em>max_depth=None</em>, <em>backup=None</em><big>)</big><a class="headerlink" href="#sequence.core.engine.SequenceEngine.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an xml file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>xml_file</strong> &#8211; str &#8211; path of the xml file to load</li>
+<li><strong>max_depth</strong> &#8211; int &#8211; maximum depth for sequence creation</li>
+<li><strong>backup</strong> &#8211; str &#8211; path of the xml backup file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.engine.SequenceEngine.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.engine.SequenceEngine.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.engine.SequenceEngine.wait">
+<tt class="descname">wait</tt><big>(</big><em>timeout=None</em><big>)</big><a class="headerlink" href="#sequence.core.engine.SequenceEngine.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for the sequence to terminate
+Return False if the timeout is expired, True otherwise</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.engine.SequenceLoggingFormatter">
+<em class="property">class </em><tt class="descclassname">sequence.core.engine.</tt><tt class="descname">SequenceLoggingFormatter</tt><big>(</big><em>fmt=None</em>, <em>datefmt=None</em><big>)</big><a class="headerlink" href="#sequence.core.engine.SequenceLoggingFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A log formatter customized to handle sequence execution logs</p>
+<dl class="method">
+<dt id="sequence.core.engine.SequenceLoggingFormatter.format">
+<tt class="descname">format</tt><big>(</big><em>record</em><big>)</big><a class="headerlink" href="#sequence.core.engine.SequenceLoggingFormatter.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the &#8220;format&#8221; method of the Formatter class</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="sequence.core.engine.add_log_handler">
+<tt class="descclassname">sequence.core.engine.</tt><tt class="descname">add_log_handler</tt><big>(</big><em>handler</em><big>)</big><a class="headerlink" href="#sequence.core.engine.add_log_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a log handler to the execution logger</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sequence.core.engine.stream_sequence_logs">
+<tt class="descclassname">sequence.core.engine.</tt><tt class="descname">stream_sequence_logs</tt><big>(</big><em>stream</em>, <em>debug_level=20</em><big>)</big><a class="headerlink" href="#sequence.core.engine.stream_sequence_logs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the custom stream handler to the execution logger</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="runable-sequence-module">
+<h2>Runable sequence module<a class="headerlink" href="#runable-sequence-module" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><span class="target" id="module-sequence.core.runable"></span><p>Module for running sequences</p>
+<dl class="class">
+<dt id="sequence.core.runable.AbstractExecution">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">AbstractExecution</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.AbstractExecution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class providing a basis for execution implementation</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.ActionExecution">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">ActionExecution</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.ActionExecution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implementing an action execution</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.BranchExecution">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">BranchExecution</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.BranchExecution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implementing a branch execution</p>
+<dl class="method">
+<dt id="sequence.core.runable.BranchExecution.add_thread">
+<tt class="descname">add_thread</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.BranchExecution.add_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a thread to join to the list</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.ResetTimeExecution">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">ResetTimeExecution</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.ResetTimeExecution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implementing a time reset execution</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.RootSequenceThread">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">RootSequenceThread</tt><big>(</big><em>xml_sequence</em>, <em>stop_thread_parent=None</em><big>)</big><a class="headerlink" href="#sequence.core.runable.RootSequenceThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to implement the root sequence and run it in a thread</p>
+<dl class="method">
+<dt id="sequence.core.runable.RootSequenceThread.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.RootSequenceThread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the root sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.RootSequenceThread.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.RootSequenceThread.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the current sequence execution.
+Note that it is not necessarily the &#8220;self&#8221; instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.RunableSequence">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">RunableSequence</tt><big>(</big><em>xml_sequence</em>, <em>stop_thread</em>, <em>root=False</em><big>)</big><a class="headerlink" href="#sequence.core.runable.RunableSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating runable sequences and subsequences</p>
+<dl class="class">
+<dt id="sequence.core.runable.RunableSequence.TimeReference">
+<em class="property">class </em><tt class="descname">TimeReference</tt><a class="headerlink" href="#sequence.core.runable.RunableSequence.TimeReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating a specific time reference</p>
+<dl class="method">
+<dt id="sequence.core.runable.RunableSequence.TimeReference.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.RunableSequence.TimeReference.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the time reference</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.RunableSequence.TimeReference.wait">
+<tt class="descname">wait</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#sequence.core.runable.RunableSequence.TimeReference.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait until the time reference equals the time parameter</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.RunableSequence.load">
+<tt class="descclassname">RunableSequence.</tt><tt class="descname">load</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.RunableSequence.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the content of the XML sequence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.RunableSequence.run">
+<tt class="descclassname">RunableSequence.</tt><tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.RunableSequence.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the sequence</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.SequenceThread">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">SequenceThread</tt><big>(</big><em>sequence</em>, <em>starter=None</em>, <em>first=None</em><big>)</big><a class="headerlink" href="#sequence.core.runable.SequenceThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to implement and execute a sequence thread</p>
+<dl class="method">
+<dt id="sequence.core.runable.SequenceThread.build_execution">
+<tt class="descname">build_execution</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.SequenceThread.build_execution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the next execution block of the sequence thread</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.SequenceThread.generate_threads">
+<tt class="descname">generate_threads</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.SequenceThread.generate_threads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the threads launched by the current sequence thread</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.SequenceThread.increment">
+<tt class="descname">increment</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.SequenceThread.increment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Go to the next block</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.SequenceThread.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.SequenceThread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run method of the sequence thread</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.StopThread">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">StopThread</tt><big>(</big><em>main_thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implementing a mechanism to stop the whole sequence execution</p>
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.add_backup">
+<tt class="descname">add_backup</tt><big>(</big><em>backup</em><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.add_backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a backup to start when the stop mechanism is set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.add_child">
+<tt class="descname">add_child</tt><big>(</big><em>child</em><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a child to propagate stop signals to</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.add_starter">
+<tt class="descname">add_starter</tt><big>(</big><em>starter</em><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.add_starter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a starter to set when the stop mechanism is set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable the stop mechanism</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable the stop mechanism</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.is_set">
+<tt class="descname">is_set</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the stop mechanism is set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the stop mechanism</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sequence.core.runable.StopThread.set">
+<tt class="descname">set</tt><big>(</big><big>)</big><a class="headerlink" href="#sequence.core.runable.StopThread.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the stop mechanism if it is enabled,
+propagate to children otherwise</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.SubsequenceExecution">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">SubsequenceExecution</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.SubsequenceExecution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implementing a subsequence execution</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="sequence.core.runable.WaitExecution">
+<em class="property">class </em><tt class="descclassname">sequence.core.runable.</tt><tt class="descname">WaitExecution</tt><big>(</big><em>thread</em><big>)</big><a class="headerlink" href="#sequence.core.runable.WaitExecution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class implementing a wait execution</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Core documentation</a><ul>
+<li><a class="reference internal" href="#engine-module">Engine module</a></li>
+<li><a class="reference internal" href="#runable-sequence-module">Runable sequence module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="action.html"
+                        title="previous chapter">Action documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="common.html"
+                        title="next chapter">Common documentation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/core.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="common.html" title="Common documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="action.html" title="Action documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">python-sequence 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Vincent MICHEL.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
