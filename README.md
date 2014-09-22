@@ -27,6 +27,10 @@ Three main applications are available:
 
         python -m sequence.editor
 
+## Documentation
+
+A sphinx generated documentation is available [here](http://vxgmichel.github.io/python-sequence)
+
 ## License
 
 python-sequence is licensed under the [GPLv3](http://www.gnu.org/licenses/gpl-3.0-standalone.html)

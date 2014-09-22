@@ -14,14 +14,14 @@ class UploadGhPages(Command):
         pass
 
     def run(self):
-        # Import
-        from fabric.api import local
-        #from subprocess import call
-        #from functools import partial
-        #local = partial(call, shell=True)
-        # Delete gh-pages branch
-        try: local('git branch -D gh-pages ')
-        except: pass
+        # Import fabric
+        try: 
+            from fabric.api import local
+        # Import subprocess
+        except ImportError:
+            from subprocess import call
+            from functools import partial
+            local = partial(call, shell=True)
         # Create gh-pages branch
         local('git checkout --orphan gh-pages ')
         # Unstage all
@@ -31,6 +31,8 @@ class UploadGhPages(Command):
         # No jekyll file
         local('touch .nojekyll')
         local('git add .nojekyll')
+        # Add Readme
+        local('git add README.md')
         # Add html content
         local('git add docs/build/html/* -f ')
         # Move html content
@@ -41,6 +43,8 @@ class UploadGhPages(Command):
         local('git push --set-upstream origin gh-pages -f ')
         # Back to master
         local('git checkout master -f ')
+        # Delete branch
+        local('git branch -D gh-pages ')
 
 
 
