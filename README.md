@@ -17,15 +17,15 @@ Three main applications are available:
 
  - A console interface :
 
-    $ python -m sequence.console
+        $ python -m sequence.console
 
  - A PyQt based sequence runner :
 
-    $ python -m sequence.runner
+        $ python -m sequence.runner
 
  - A PyQt based sequence editor :
 
-    $ python -m sequence.editor
+        $ python -m sequence.editor
 
 ## Documentation
 
