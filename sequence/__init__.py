@@ -7,4 +7,3 @@ __path__.extend(script.__path__)
 # Raise up useful objects for user-defined actions
 from sequence.action.abstract import AbstractAction, patch_action_package
 
-

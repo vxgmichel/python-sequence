@@ -68,7 +68,8 @@ def build(verbose=False):
         print('-------------------------------------\n')
     # Create __init__ file
     path = os.path.join(TARGET_DIR, "__init__.py")
-    open(path, "a").close()
+    try: open(path, "a").close()
+    except IOError: pass
 
 # Main execution
 if __name__ == "__main__":

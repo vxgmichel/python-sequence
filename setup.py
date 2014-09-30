@@ -3,6 +3,9 @@
 from setuptools import setup, find_packages
 from setuptools import Command
 
+# Build and update pyqt resources
+import sequence.resource.pyqt
+
 class UploadGhPages(Command):
     '''Command to update build and upload sphinx doc to github.'''
     user_options = []
@@ -52,6 +55,8 @@ setup(name = 'python-sequence',
       version = '0.1.0',
       description = 'Package for sequence edition and execution.',
       packages = find_packages(),
-      cmdclass = {'upload_gh_pages': UploadGhPages}
+      include_package_data=True,
+      package_data={'': ['*.png', '*.ui', '*.qrc']},
+      cmdclass = {'upload_gh_pages': UploadGhPages},
      )
 
