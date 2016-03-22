@@ -1,17 +1,23 @@
-# python-sequence
+python-sequence
+===============
 
 This package contains tools to create, edit and run action-based sequences.
 
-## Requirement
+![screenshot](examples/screenshot.png)
+
+Requirement
+-----------
 
 - Python 2.7
 - PyQt 4
 
-## Installation
+Installation
+------------
 
     $ python setup.py install
 
-## Usage
+Usage
+-----
 
 Three main applications are available:
 
@@ -27,14 +33,17 @@ Three main applications are available:
 
         $ python -m sequence.editor
 
-## Documentation
+Documentation
+-------------
 
 A sphinx generated documentation is available [here](http://vxgmichel.github.io/python-sequence)
 
-## License
+License
+-------
 
 python-sequence is licensed under the [GPLv3](http://www.gnu.org/licenses/gpl-3.0-standalone.html)
 
-## Author
+Author
+------
 
 Vincent Michel @ NEXEYA SYSTEMS
