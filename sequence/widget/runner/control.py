@@ -196,11 +196,10 @@ class ControlWidget(QtGui.QWidget):
             """
             Print dots every half of a second
             """
-            tick = 1
+            tick = 500
             while self.parent().run_thread.isRunning():
                 self.parent().log(".", end="")
                 self.msleep(tick)
-                print('hey!')
 
     #### Signals target ####
 
