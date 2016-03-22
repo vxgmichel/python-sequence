@@ -15,28 +15,25 @@
 
 
 # Imports
-import sequence
-import os, sys, types
+import os
+import sys
+import types
 from PyQt4 import QtGui, QtCore
-from PyQt4.uic import loadUi
 from functools import partial
 import logging
 
-# Imports from SequenceEditor package
+# Widget imports
 from sequence.widget.editor.item import SequenceItem
 from sequence.widget.editor.blockmodel import BlockModel
+from sequence.widget.runner.control import ControlWidget
+from sequence.widget.runner.loggingtab import LoggingTabWidget
+from sequence.resource.pyqt.editor_ui import Ui_PySequenceEditor
 
-
-# Import from other packages
+# Local imports
 from sequence.action.abstract import get_action_list
 from sequence.common.constant import XBM, IMAGES_DIR
 from sequence.common.parser import parse_sequence_file, XMLSequence
 from sequence.core.engine import add_log_handler
-
-from sequence.widget.runner.control import ControlWidget
-from sequence.widget.runner.loggingtab import LoggingTabWidget
-
-
 
 
 # Signal Handler class definition
@@ -65,7 +62,8 @@ class EditorWidget(QtGui.QWidget):
     def __init__(self, parent=None):
         # Setup UI
         super(EditorWidget, self).__init__(parent)
-        self.ui = loadUi('sequence/resource/pyqt/source/editor.ui', self)
+        self.ui = Ui_PySequenceEditor()
+        self.ui.setupUi(self)
 
         # Customize UI
         self.ui.main_splitter.setStretchFactor(1, 1)
@@ -73,7 +71,7 @@ class EditorWidget(QtGui.QWidget):
         self.logging_tab = LoggingTabWidget(parent=self)
         self.logging_tab.setTabPosition(QtGui.QTabWidget.South)
         self.logging_tab.log_table.verticalHeader().setDefaultSectionSize(20)
-        self.logging_tab.resize(0,0)
+        self.logging_tab.resize(0, 0)
         self.ui.center_splitter.addWidget(self.logging_tab)
         self.ui.tab_widget.clear()
         self.control_widget = ControlWidget(parent=self)
