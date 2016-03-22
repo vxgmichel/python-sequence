@@ -18,13 +18,13 @@
 import sequence
 import os, sys, types
 from PyQt4 import QtGui, QtCore
+from PyQt4.uic import loadUi
 from functools import partial
 import logging
 
 # Imports from SequenceEditor package
 from sequence.widget.editor.item import SequenceItem
 from sequence.widget.editor.blockmodel import BlockModel
-from sequence.resource.pyqt.editor_ui import Ui_PySequenceEditor
 
 
 # Import from other packages
@@ -60,11 +60,12 @@ class EditorWidget(QtGui.QWidget):
     Main class of the PySequence Editor
     """
 
+    print_signal = QtCore.pyqtSignal(unicode)
+
     def __init__(self, parent=None):
         # Setup UI
         super(EditorWidget, self).__init__(parent)
-        self.ui = Ui_PySequenceEditor()
-        self.ui.setupUi(self)
+        self.ui = loadUi('sequence/resource/pyqt/source/editor.ui', self)
 
         # Customize UI
         self.ui.main_splitter.setStretchFactor(1, 1)
@@ -88,8 +89,10 @@ class EditorWidget(QtGui.QWidget):
         # Stream redirection
         self.save_stdout = sys.stdout
         self.save_stderr = sys.stderr
-        sys.stdout = self.logging_tab
-        sys.stderr = self.logging_tab
+        safe_write = lambda arg: self.print_signal.emit(arg)
+        safe_write.write = safe_write
+        sys.stdout = sys.stderr = safe_write
+        self.print_signal.connect(self.logging_tab.write)
 
         # Sequence Engine
         self.control_widget.enable_path_request()
@@ -530,5 +533,3 @@ class EditorWidget(QtGui.QWidget):
         # Put the original streams back in place
         sys.stdout = self.save_stdout
         sys.stderr = self.save_stderr
-
-
