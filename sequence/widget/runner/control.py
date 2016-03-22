@@ -18,7 +18,7 @@
 import os, sys, logging
 from PyQt4 import QtGui, QtCore
 
-# Imports from Packages
+# Imports from sequence
 from sequence.resource.pyqt import control_icons_rc
 from sequence.core.engine import SequenceEngine
 
@@ -282,19 +282,21 @@ class ControlWidget(QtGui.QWidget):
 # Main execution
 if __name__ == '__main__':
     # Imports to test the widget
-    import Packages
-    from Packages.SequenceCore.SequenceEngine import stream_sequence_logs
+    import sequence
+    from sequence.core.engine import stream_sequence_logs
     # Create the widget
     stream_sequence_logs(sys.stdout)
     app = QtGui.QApplication(sys.argv)
-    def print_in_console(msg): print(msg)
-    ui = ControlWidget(log_signal = print_in_console)
-    path = os.path.join(os.path.dirname(Packages.__file__), os.pardir,
-                        "Sequences", "TempoFest.xml")
+
+    def print_in_console(msg, end):
+        print(msg)
+
+    ui = ControlWidget(log_signal=print_in_console)
+    path = os.path.join(
+        os.path.dirname(sequence.__file__), os.pardir,
+        "examples", "BranchTest.xml")
     ui.set_path(path)
     ui.enable()
     ui.show()
     # Run the widget
     sys.exit(app.exec_())
-
-

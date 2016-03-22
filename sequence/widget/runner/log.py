@@ -19,7 +19,7 @@ import os, sys
 import logging
 from PyQt4 import QtGui, QtCore
 
-# Import from Packages
+# Import from sequence
 from sequence.core.engine import add_log_handler
 from sequence.widget.runner.control import ControlWidget
 
@@ -230,18 +230,21 @@ class LoggingWidget(QtGui.QTableWidget):
 
 # Main execution to test the widget
 if __name__ == '__main__':
-    import Packages
+    import sequence
     app = QtGui.QApplication(sys.argv)
-    def print_in_console(msg): print(msg)
-    ui1 = ControlWidget(log_signal = print_in_console)
-    path = os.path.join(os.path.dirname(Packages.__file__),
+
+    def print_in_console(msg, end):
+        sys.stdout.write(msg + end)
+        sys.stdout.flush()
+
+    ui1 = ControlWidget(log_signal=print_in_console)
+    path = os.path.join(os.path.dirname(sequence.__file__),
                         os.pardir,
-                        "Sequences",
-                        "TempoFest.xml")
+                        "examples",
+                        "BranchTest.xml")
     ui1.set_path(path)
     ui1.enable()
     ui1.show()
     ui2 = LoggingWidget()
     ui2.show()
     sys.exit(app.exec_())
-

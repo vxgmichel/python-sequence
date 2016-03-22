@@ -109,19 +109,18 @@ p, li { white-space: pre-wrap; }
 
 # Main execution to test the widget
 if __name__ == '__main__':
-    import Packages
+    import sequence
     app = QtGui.QApplication(sys.argv)
     ui1 = LoggingTabWidget("LoggingTabWidget Initialized.")
     ui1.show()
-    ui2 = ControlWidget(log_signal = ui1.log)
-    path = os.path.join(os.path.dirname(Packages.__file__),
+    ui2 = ControlWidget(log_signal=ui1.log)
+    path = os.path.join(os.path.dirname(sequence.__file__),
                         os.pardir,
-                        "Sequences",
-                        "TempoFest.xml")
+                        "examples",
+                        "BranchTest.xml")
     ui2.set_path(path)
     ui2.enable()
     ui2.show()
     sys.stdout = ui1
     print("Test print : OK !")
     sys.exit(app.exec_())
-

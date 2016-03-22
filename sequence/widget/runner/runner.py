@@ -23,10 +23,9 @@ from PyQt4 import QtGui, QtCore
 
 
 # Import from other packages
-
-import sequence as Packages
 from sequence.widget.runner.control import ControlWidget
 from sequence.widget.runner.loggingtab import LoggingTabWidget
+
 
 class RunnerWidget(QtGui.QWidget):
     """
