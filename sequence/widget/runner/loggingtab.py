@@ -50,7 +50,7 @@ class LoggingTabWidget(QtGui.QTabWidget):
         self.log_console.setPalette(palette)
         self.log_console.setFrameShadow(QtGui.QFrame.Sunken)
         self.log_console.setLineWidth(10)
-        self.log_console.setLineWrapMode(QtGui.QTextEdit.NoWrap)
+        self.log_console.setLineWrapMode(QtGui.QTextEdit.WidgetWidth)
         self.log_console.setReadOnly(True)
         self.log_console.setTabStopWidth(200)
         # Ugly HTML
