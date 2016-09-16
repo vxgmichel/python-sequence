@@ -2,7 +2,7 @@
 
 """ Main module for sequence execution """
 
-#-------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Name:        SequenceEngine
 # Purpose:     Load and execute sequences from xml files
 #
@@ -11,17 +11,17 @@
 # Created:     26/09/2013
 # Copyright:   (c) michel.vincent 2013
 # Licence:     GPL
-#-------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # Imports
+import sys
 from optparse import OptionParser
-from sequence.common.parser import parse_sequence_file
 from sequence.core.engine import SequenceEngine, stream_sequence_logs
+
 
 # Command line execution
 def main():
     """  Main function for console execution """
-    import sys
     # Parse arguments
     file_name, depth, backup, debug_level = parse_command_line_args()
     # Create Log Handler
@@ -38,7 +38,7 @@ def main():
         res = raw_input("Press 'r' to run, any other key to abort: ")
     except KeyboardInterrupt:
         res = 'a'
-    if res.lower() =='r':
+    if res.lower() == 'r':
         print("RUN")
         engine.start()
         boolean = False
@@ -68,9 +68,9 @@ def parse_command_line_args():
 
     msg = "Level of the logging messages (from 1 for debug to 5 for critical)"
     parser.add_option('-l', '--log', metavar='LVL',
-                      type='int', help=msg, default = 2)
+                      type='int', help=msg, default=2)
 
-    (options, args)=parser.parse_args()
+    options, args = parser.parse_args()
 
     if len(args) == 0:
         parser.print_help()
@@ -88,5 +88,4 @@ def parse_command_line_args():
 
 # Main execution
 if __name__ == '__main__':
-    import sys, os
     main()
