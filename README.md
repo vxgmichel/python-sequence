@@ -23,20 +23,17 @@ Three main applications are available:
 
  - A console interface :
 
-        $ python -m sequence.console
-	or
+        $ python -m sequence.console  # Or
         $ sequence-console
 
  - A PyQt based sequence runner :
 
-        $ python -m sequence.runner
-	or
+        $ python -m sequence.runner  # Or
         $ sequence-runner
 
  - A PyQt based sequence editor :
 
-        $ python -m sequence.editor
-	or
+        $ python -m sequence.editor  # Or
         $ sequence-editor
 
 Documentation
