@@ -5,6 +5,8 @@ from setuptools import Command
 
 # Build and update pyqt resources
 import sequence.resource.pyqt
+del sequence
+
 
 class UploadGhPages(Command):
     '''Command to update build and upload sphinx doc to github.'''
@@ -18,7 +20,7 @@ class UploadGhPages(Command):
 
     def run(self):
         # Import fabric
-        try: 
+        try:
             from fabric.api import local
         # Import subprocess
         except ImportError:
@@ -50,19 +52,18 @@ class UploadGhPages(Command):
         local('git branch -D gh-pages ')
 
 
-
-setup(name = 'python-sequence',
-      version = '0.1.0',
-      description = 'Package for sequence edition and execution.',
-      packages = find_packages(),
-      include_package_data=True,
-      package_data={'': ['*.png', '*.ui', '*.qrc']},
-      cmdclass = {'upload_gh_pages': UploadGhPages},
-      entry_points={      
-          'console_scripts': ['sequence-console = sequence.script.console:main'],
-          'gui_scripts': ['sequence-runner = sequence.script.runner:main',
-                          'sequence-editor = sequence.script.editor:main'
-                          ]
-      },
-     )
-
+setup(
+    name='python-sequence',
+    version='0.1.0',
+    description='Package for sequence edition and execution.',
+    packages=find_packages(),
+    include_package_data=True,
+    package_data={'': ['*.png', '*.ui', '*.qrc']},
+    cmdclass={'upload_gh_pages': UploadGhPages},
+    entry_points={
+        'console_scripts': [
+            'sequence-console = sequence.console:main'],
+        'gui_scripts': [
+            'sequence-runner = sequence.runner:main',
+            'sequence-editor = sequence.editor:main']},
+)
