@@ -58,5 +58,11 @@ setup(name = 'python-sequence',
       include_package_data=True,
       package_data={'': ['*.png', '*.ui', '*.qrc']},
       cmdclass = {'upload_gh_pages': UploadGhPages},
+      entry_points={      
+          'console_scripts': ['sequence-console = sequence.script.console:main'],
+          'gui_scripts': ['sequence-runner = sequence.script.runner:main',
+                          'sequence-editor = sequence.script.editor:main'
+                          ]
+      },
      )
 
