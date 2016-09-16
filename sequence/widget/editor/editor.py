@@ -54,7 +54,7 @@ class SignalHandler(QtCore.QObject):
 # EditorWidget Class Definition
 class EditorWidget(QtGui.QWidget):
     """
-    Main class of the PySequence Editor
+    Main class of the sequence editor
     """
 
     print_signal = QtCore.pyqtSignal(unicode)
@@ -124,7 +124,7 @@ class EditorWidget(QtGui.QWidget):
         self.ui.block_list.expandToDepth(0)
 
         # Sequence initialization
-        self.current_sequence = XMLSequence("New Sequence")
+        self.current_sequence = XMLSequence("New sequence")
 
         # Signals connection
         self.ui.open_button.clicked.connect(self.on_open)
@@ -152,7 +152,7 @@ class EditorWidget(QtGui.QWidget):
         self.update()
 
         # Logging
-        self.log(u'PySequence Editor Initialized.')
+        self.log(u'Sequence editor initialized.')
 
 
         self.signal_handler = SignalHandler(logging.DEBUG)
@@ -249,11 +249,11 @@ class EditorWidget(QtGui.QWidget):
         # Create new sequence
         self.file_path = None
         self.set_changed(False)
-        self.current_sequence = XMLSequence("New Sequence", depth=0,
+        self.current_sequence = XMLSequence("New sequence", depth=0,
                                             level=0, execution=False)
         # Update
         self.update()
-        self.log('NEW : New Sequence')
+        self.log('NEW : New sequence')
 
     def on_open(self):
         """
@@ -492,7 +492,7 @@ class EditorWidget(QtGui.QWidget):
             name = os.path.basename(self.file_path)
         else:
             name = self.current_sequence.sequence_id
-        title = 'PySequence Editor - '
+        title = 'Sequence editor - '
         # Set the title format
         if self.changed:
             title += '*' + name + '*'

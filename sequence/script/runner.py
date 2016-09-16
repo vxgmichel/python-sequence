@@ -25,7 +25,7 @@ def main(filename=None):
     ui = RunnerWidget()
     if filename:
         ui.set_filename(filename)
-    ui.setWindowTitle("PySequence Runner")
+    ui.setWindowTitle("Sequence runner")
     ui.show()
     sys.exit(app.exec_())
 

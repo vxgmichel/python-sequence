@@ -160,7 +160,7 @@ class RunnerWidget(QtGui.QWidget):
 
     def open_editor(self, boolean, filename=""):
         """
-        Open the PySequence Editor in a subprocess
+        Open the editor in a subprocess
         The given filename is used to open a sequence
         """
         cmd = u'python -m sequence.editor '
