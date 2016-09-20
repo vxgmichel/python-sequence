@@ -2,7 +2,7 @@
 
 """ Module for executing actions """
 
-#-------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Name:        Actions
 # Purpose:
 #
@@ -11,22 +11,20 @@
 # Created:     09/10/2013
 # Copyright:   (c) michel.vincent 2013
 # Licence:     GPL
-#-------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 
 # Imports
-from pkgutil import walk_packages, extend_path
+from pkgutil import walk_packages
 from collections import OrderedDict as ODict
 from importlib import import_module
 from time import sleep
 import __builtin__
-import logging
-import os, sys
 
 
 # Imports from constants
 from sequence.common.constant import LOGGER
-from sequence import action as action_package 
+from sequence import action as action_package
 from sequence.action import user as user_action_package
 
 
@@ -52,7 +50,7 @@ def get_action_list():
     for _, module_name, _ in walk_packages(path, prefix):
         try:
             module = import_module(module_name)
-        except Exception as exc:
+        except Exception:
             pass
         else:
             action_class = get_action_from_module(module)
@@ -97,7 +95,8 @@ def process_module(module_name, with_parameters=True):
         try:
             default_parameters = parse_default_parameters(parameters_string)
         except Exception as e:
-            msg = str("Error while parsing parameters of action module '{}'".format(e))
+            msg = str("Error while parsing parameters of action module '{}'"
+                      .format(e))
             msg = msg.format(module_name)
             raise ActionCreationError(msg)
     else:
@@ -138,12 +137,12 @@ def cast_parameters(xml_block, default_parameters):
             try:
                 if isinstance(default_parameters[name], bool) and \
                    isinstance(value, basestring):
-                  if value.lower() in ["true", "1"]:
-                    cast_value = True
-                  elif value.lower() in ["false", "0"]:
-                    cast_value = False
-                  else:
-                    raise Exception()
+                    if value.lower() in ["true", "1"]:
+                        cast_value = True
+                    elif value.lower() in ["false", "0"]:
+                        cast_value = False
+                    else:
+                        raise Exception()
                 else:
                     cast_value = type(default_parameters[name])(value)
             except:
@@ -160,29 +159,39 @@ def cast_parameters(xml_block, default_parameters):
     return result
 
 
+def parse_value(value, vtype):
+    """
+    Return a value for two strings (value and type)
+    """
+    if ',' in vtype:
+        return enum_type(*vtype.split(","))(value)
+    if vtype.lower() == 'bool':
+        if value.lower() not in ['true', '1', 'false', '0']:
+            raise TypeError('{} is not a valid bool'.format(value))
+        return value.lower() in ['true', '1']
+    return getattr(__builtin__, vtype.lower())(value)
+
+
+def parse_line(line):
+    """
+    Return a (name, value) tuple from a parameter line.
+    """
+    name, value, vtype = (e.strip() for e in line.split(':'))
+    return name, parse_value(value, vtype)
+
+
 def parse_default_parameters(parameters):
     """
     Return a dictionnary from the default parameters string
     """
-    # Amazingly monstruous magical one-liner
-    return ODict((name,getattr(__builtin__, vtype.lower())(value))
-                  if (vtype.lower() != "bool" and "," not in vtype)
-                  else (name,True) if (value.lower() in ["true","1"]
-                                   and vtype.lower() == "bool")
-                  else (name,False) if (value.lower() in ["false","0"]
-                                   and vtype.lower() == "bool")
-                  else 0 if vtype.lower() == "bool"
-                  else (name, enum_type(*vtype.split(","))(value))
-                  for name, value, vtype in (tuple(e.strip()
-                                             for e in line.split(":"))
-                                             for line in parameters.split("\n")
-                                             if line))
+    return ODict(parse_line(line) for line in parameters.split("\n") if line)
 
 
 # BaseEnum class definiton
 class BaseEnum(unicode):
     """ Base class for enumerations in action parameters """
     pass
+
 
 # Create enumerations in action parameters
 def enum_type(*args):
@@ -193,30 +202,37 @@ def enum_type(*args):
     for arg in args:
         if not isinstance(arg, basestring):
             msg = "{} is not a string".format(arg)
-            raise AttributeError
+            raise TypeError(msg)
+
     # Format strings
     values = [arg.strip() for arg in args]
+
     # Create MetaEnum
     values_property = property(lambda cls: values)
-    MetaEnum = type("MetaEnum", (type,), {"values":values_property})
+    MetaEnum = type("MetaEnum", (type,), {"values": values_property})
+
     # __new__ method
     def __new__(cls, value):
         if value not in cls.values:
             msg = "'{}' not in {}".format(value, cls.values)
             raise AttributeError(msg)
         return BaseEnum.__new__(cls, value)
+
     # __repr__ method
     def __repr__(self):
         return u"Element '{}' of Enum({})".format(unicode(self), self.values)
+
     # method dictionnary
     method_dict = {"__new__": __new__,
                    "__repr__": __repr__,
                    "values": property(lambda self: self.__class__.values)}
+
     # Create EnumType
     return MetaEnum("EnumType", (BaseEnum,), method_dict)
 
+
 # Abstract action class definition
-class AbstractAction(object) :
+class AbstractAction(object):
     """
     Class providing a basis for action creation and execution
     """
@@ -239,7 +255,7 @@ class AbstractAction(object) :
                 raise ActionCreationError(msg)
             setattr(cls, name, value)
 
-    def __init__(self, name, module, iteration, tick, parameters) :
+    def __init__(self, name, module, iteration, tick, parameters):
         """
         Initialize action
         """
@@ -257,7 +273,7 @@ class AbstractAction(object) :
         for name, value in parameters.items():
             setattr(self, name, value)
 
-    def execute(self, stop_thread, log_dict) :
+    def execute(self, stop_thread, log_dict):
         """
         Execute action and log it with the stop mecanism and logging dictionary
         """
@@ -268,10 +284,10 @@ class AbstractAction(object) :
             self.warning('The stop mecanism has been activated before Pre_run')
             return False
         # Try PreRun
-        try :
+        try:
             self.info('PreRun')
             self._valid_pre_run_flag = self.pre_run()
-        except Exception as exc :
+        except Exception as exc:
             self.error('PreRun failed:')
             self.error(repr(exc))
         # Warning if PreRun returned False
@@ -283,14 +299,14 @@ class AbstractAction(object) :
         # If PreRun returned True
         elif self._valid_pre_run_flag:
             # Log info
-            if self._iteration == 1 :
+            if self._iteration == 1:
                 self.info('Run')
-            else :
+            else:
                 self.info('Run ({} iterations)'.format(self._iteration))
             # Run Loop
-            for i in range(self._iteration) :
+            for i in range(self._iteration):
                 # Try Run
-                try :
+                try:
                     run_result = self.run()
                 except Exception as exc:
                     self.error('Run failed on execution {}:'.format(i+1))
@@ -317,7 +333,7 @@ class AbstractAction(object) :
                     self.warning(msg)
                     break
         # Try Post run
-        try :
+        try:
             self.info('PostRun')
             result = self.post_run()
         except Exception as exc:
@@ -377,11 +393,10 @@ class AbstractAction(object) :
 # Action Creation Error class definition
 class ActionCreationError(StandardError):
     """ Custom error raised when an action creation error is detected """
-    def __init__(self, strerror) :
+
+    def __init__(self, strerror):
         StandardError.__init__(self, strerror)
         self.strerror = strerror
 
-    def __str__(self) :
+    def __str__(self):
         return self.strerror
-
-
