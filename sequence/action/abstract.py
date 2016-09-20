@@ -255,12 +255,17 @@ class AbstractAction(object):
                 raise ActionCreationError(msg)
             setattr(cls, name, value)
 
+    @property
+    def interrupted(self):
+        return self._stop_thread and self._stop_thread.is_set()
+
     def __init__(self, name, module, iteration, tick, parameters):
         """
         Initialize action
         """
         # Set properties
         self._log_dict = None
+        self._stop_thread = None
         self._name = name
         self._module = module
         self._iteration = iteration
@@ -294,7 +299,7 @@ class AbstractAction(object):
         if not self._valid_pre_run_flag:
             self.warning('PreRun returned False')
         # Stop thread activated case
-        elif self._stop_thread.is_set():
+        elif self.interrupted:
             self.warning('The stop mecanism has been activated during PreRun')
         # If PreRun returned True
         elif self._valid_pre_run_flag:
@@ -318,7 +323,7 @@ class AbstractAction(object):
                     self.warning(msg)
                     break
                 # Break if stop thread activated
-                if self._stop_thread.is_set() and i != self._iteration-1:
+                if self.interrupted and i != self._iteration-1:
                     msg = 'The stop mecanism has been activated during Run'
                     msg += ' (execution {})'.format(i+1)
                     self.warning(msg)
@@ -327,7 +332,7 @@ class AbstractAction(object):
                 self._valid_run_count += 1
                 sleep(self._tick)
                 # Break if stop thread activated
-                if self._stop_thread.is_set() and i != self._iteration-1:
+                if self.interrupted and i != self._iteration-1:
                     msg = 'The stop mecanism has been activated during Run'
                     msg += ' (tick {})'.format(i+1)
                     self.warning(msg)
