@@ -54,7 +54,7 @@ class UploadGhPages(Command):
 
 setup(
     name='python-sequence',
-    version='0.1.0',
+    version='0.1.1',
     description='Package for sequence edition and execution.',
     packages=find_packages(),
     include_package_data=True,
